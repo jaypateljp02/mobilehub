@@ -3,33 +3,73 @@
 @tailwind utilities;
 
 :root {
-  background-color: #050505;
-  color: white;
+  --background: #fdfdfd;
+  --text: #050505;
+  --card-bg: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.8);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
+.dark {
+  --background: #050505;
+  --text: #ffffff;
+  --card-bg: #121212;
+  --border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(0, 0, 0, 0.8);
+}
+
 body {
+  background-color: var(--background);
+  color: var(--text);
   margin: 0;
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
 }
 
 /* Custom scrollbar for Webkit */
 ::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-    background: #050505;
+  background: #050505;
 }
+
 ::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 4px;
+  background: #333;
+  border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
 
 /* Smooth scrolling */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+/* Fix select dropdown options for dark mode */
+select {
+  background-color: var(--card-bg);
+  color: var(--text);
+}
+
+select option {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 12px;
+}
+
+.dark select option {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+select option:hover,
+select option:checked {
+  background-color: #39FF14;
+  color: #000000;
 }
